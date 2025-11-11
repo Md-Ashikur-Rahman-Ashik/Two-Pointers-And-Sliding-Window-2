@@ -17,20 +17,24 @@ int main()
 
     int size;
     cin >> size;
-    pbds<pair<int, int>> p;
+    pbds<int> p;
 
     for (int i = 1; i <= size; i++)
     {
         int integerValue;
         cin >> integerValue;
-        p.insert({integerValue, i});
+        p.insert(integerValue);
     }
 
-    p.erase({3, 6});
+    // p.erase({3, 6});
+    // int x = p.order_of_key(4);
 
-    for (auto [x, y] : p)
+    auto it = p.find_by_order(0);
+    cout << *it << "\n";
+
+    for (auto value : p)
     {
-        cout << x << " " << y << "\n";
+        cout << value << " ";
     }
 
     cout << "\n";
